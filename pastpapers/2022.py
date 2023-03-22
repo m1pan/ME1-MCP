@@ -110,4 +110,3 @@ by = bx + 2
 plt.plot(bx,by,Linewidth=3,c='b')
 plt.plot([-4,-2],[0,0],Linewidth=3,c='b')
 plt.grid()
-aefa
