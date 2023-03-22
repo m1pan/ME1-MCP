@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+import random as rn
 
 CID = [0,1,8,5,3,1,8,9]
 
@@ -110,3 +110,19 @@ by = bx + 2
 plt.plot(bx,by,Linewidth=3,c='b')
 plt.plot([-4,-2],[0,0],Linewidth=3,c='b')
 plt.grid()
+
+ant = (-3,0)
+path = [(-3,0)]
+N = 0
+
+while ant[0] < 0 and N < 1000:
+    dx = rn.random()*0.6-0.3
+    dy = rn.random()*0.6-0.3
+    new = (ant[0]+dx, ant[1]+dy)
+    path += new
+    N += 1
+    if new[1]>0 or new[0]+2<new[1]<new[0]+4 or (x+1)**2+(y-2)**2>Rad**2 or (x+2)**2+(y-1)**2>Rad**2:
+        ant = new
+
+plt.plot(path[:][0],path[:][1],c='r')
+plt.show()
