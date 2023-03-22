@@ -30,11 +30,11 @@ while ant[0] < 0 and N < 1000:
     dx = rn.random()*0.6-0.3
     dy = rn.random()*0.6-0.3
     new = (ant[0]+dx, ant[1]+dy)
-    path.append(new)
     N += 1
     if new[1]>0 or new[0]+2<new[1]<new[0]+4 or (new[0]+1)**2+(new[1]-2)**2>Rad**2 or (new[0]+2)**2+(new[1]-1)**2>Rad**2:
         ant = new
+        path.append(new)
 
 
-plt.plot([i[0] for i in path],[i[1] for i in path],c='r')
+plt.scatter([i[0] for i in path],[i[1] for i in path],c='r')
 plt.show()
