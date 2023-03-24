@@ -37,6 +37,6 @@ for i in range(8):
     S.append(Series(cid[i]))
 
 #plot S against number of terms N
-plt.plot(range(8),cid)
+plt.plot(cid, S)
 plt.show()
 
