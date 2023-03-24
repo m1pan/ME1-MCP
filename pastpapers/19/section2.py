@@ -77,6 +77,6 @@ for i in range(1,len(y)-1):
     deriv.append((y[i+1]-y[i-1])/(xaxis[i+1]+xaxis[i-1]))
 
 plt.figure(2)
-plt.plot(y,xaxis)
-plt.plot(deriv,xaxis[1:len(xaxis)-1],c='r')
+plt.plot(xaxis,y)
+plt.plot(xaxis[1:len(xaxis)-1],deriv,c='r')
 plt.show()
