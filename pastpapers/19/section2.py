@@ -35,3 +35,48 @@ def MatOp(A):
 theta = np.pi/6
 D = 10
 L = 20
+plt.figure(1)
+plt.plot([0,L],[D/2,D/2])
+plt.plot([0,L],[-D/2,-D/2])
+
+
+position = (D/(np.tan(theta)*2),D/2)
+theta1 = np.pi/2 - theta
+path = [(0,0),position]
+N = 1
+while position[0]<=L:
+    xnew = position[0] + D/np.tan(theta1)
+    ynew = -position[1]
+    position = (xnew,ynew)
+    path.append(position)
+    N += 1
+plt.plot([i[0] for i in path],[i[1] for i in path],c='r')
+
+print(N)
+
+#Question 3
+with open('xaxis.txt','r') as f:
+    xaxis = [float(i) for i in f]
+
+def factorial(N):
+    if N ==1:
+        return 1
+    s = 0
+    s = N * factorial(N-1)
+    return s
+y = []
+for j in range(len(xaxis)):
+    sum = 0
+    for i in range(0,11):
+        sum += (xaxis[j]**(2*i))*((-1)**i)/factorial(2*i+1)
+    y.append(sum)
+
+
+deriv = []
+for i in range(1,len(y)-1):
+    deriv.append((y[i+1]-y[i-1])/(xaxis[i+1]+xaxis[i-1]))
+
+plt.figure(2)
+plt.plot(y,xaxis)
+plt.plot(deriv,xaxis[1:len(xaxis)-1],c='r')
+plt.show()
